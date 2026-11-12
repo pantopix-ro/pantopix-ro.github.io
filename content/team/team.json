@@ -1,0 +1,11 @@
+{
+  "members": [
+    { "name": "Mihnea", "role": "Lead engineer", "photo": "/team/mihnea.jpg", "linkedin": "" },
+    { "name": "Bogdan", "role": "", "photo": "/team/bogdan.jpg", "linkedin": "" },
+    { "name": "Silviu", "role": "", "photo": "/team/silviu.jpg", "linkedin": "" },
+    { "name": "Anuța", "role": "", "photo": "/team/anuta.jpg", "linkedin": "" },
+    { "name": "Serena", "role": "", "photo": "/team/serena.jpg", "linkedin": "" },
+    { "name": "Florin", "role": "", "photo": "/team/florin.jpg", "linkedin": "" },
+    { "name": "Andrei", "role": "", "photo": "/team/andrei.jpg", "linkedin": "" }
+  ]
+}

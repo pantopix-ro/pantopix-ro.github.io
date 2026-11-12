@@ -1,0 +1,26 @@
+{
+  "name": "PANTOPIX RO",
+  "tagline": "Software engineering in Cluj-Napoca. Part of the PANTOPIX group, founded in Germany in 2010.",
+  "email": "salut@pantopix.com",
+  "calendar": "https://cal.com/px-mihnea/talk",
+  "calendarLabel": "Book a 30-minute call",
+  "address": "Str. Înfrățirii 30, Cluj-Napoca, Romania",
+  "linkedin": "https://www.linkedin.com/company/pantopix-ro/",
+  "group": "https://pantopix.com",
+  "nav": [
+    { "label": "Services", "href": "/services/" },
+    { "label": "How we work", "href": "/process/" },
+    { "label": "Free audit", "href": "/audit/" },
+    { "label": "Insights", "href": "/insights/" },
+    { "label": "Team", "href": "/#team" },
+    { "label": "Contact", "href": "/#contact" }
+  ],
+  "legal": {
+    "company": "PANTOPIX RO SRL",
+    "cui": "51113624",
+    "register": "J2025001126003",
+    "euid": "ROONRC.J2025001126003",
+    "incorporated": "14 January 2025",
+    "seat": "Str. Înfrățirii 30, Cluj-Napoca, Romania"
+  }
+}

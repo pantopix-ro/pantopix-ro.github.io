@@ -1,0 +1,43 @@
+{
+  "eyebrow": "Free · 5 working days · no commitment",
+  "title": "A free audit of your digital product",
+  "lede": "In five working days, our engineers and designers review the two areas you choose. You get a written report with the five changes that would save you the most time and money.",
+  "gets": [
+    { "n": "01", "text": "A 45-minute discovery call with a senior engineer" },
+    { "n": "02", "text": "An in-depth review of the 2 areas you choose" },
+    { "n": "03", "text": "A written report with ranked recommendations" },
+    { "n": "04", "text": "A 60-minute walkthrough of the results with your team" }
+  ],
+  "keep": "The report is yours to keep. No obligation to work with us afterwards.",
+  "forWho": [
+    "Releases break, or every change takes weeks to reach users.",
+    "The original developers left and nobody wants to touch the code.",
+    "Your app or portal is used less than it should be.",
+    "Cloud bills keep growing and nobody is sure why.",
+    "The roadmap is planned, but there aren't enough developers to deliver it.",
+    "You want AI in your product and don't know where to start."
+  ],
+  "areas": [
+    { "name": "Product and UX", "text": "A UX review of your web app, mobile app or portal, focused on the tasks your users actually do.", "you": "Top 10 usability issues, quick fixes" },
+    { "name": "Codebase", "text": "Code quality, tests, dependencies and how long a change takes to reach users.", "you": "Risk list, baseline numbers, what to fix first" },
+    { "name": "Platform and backend", "text": "Your APIs, integrations and data flows under real load.", "you": "Bottlenecks, an architecture sketch" },
+    { "name": "Cloud, DevOps and security", "text": "Cloud costs, deployment pipeline and security basics on AWS or GCP: what is overspent, slow or exposed.", "you": "Cost quick wins, risk list" },
+    { "name": "AI features", "text": "Which 2 or 3 AI use cases would pay off fastest in your product, and whether your data is ready.", "you": "Ranked use cases, readiness check" },
+    { "name": "Accessibility", "text": "Your web app or shop against the European Accessibility Act.", "you": "Failures ranked by severity, fixes" }
+  ],
+  "steps": [
+    { "name": "Book", "text": "Fill in the short form and choose the two areas you want reviewed.", "time": "2 minutes" },
+    { "name": "Discovery call", "text": "We learn your goals, systems and pain points, and agree what we look at.", "time": "45 minutes" },
+    { "name": "Analysis", "text": "Our engineers and designers review exports, screenshots or read-only access.", "time": "5 working days, on our side" },
+    { "name": "Report and walkthrough", "text": "We present the findings to your team and answer questions.", "time": "60 minutes" }
+  ],
+  "howText": "From booking to report in about two weeks. We need roughly two hours of your team's time in total. No installs, no disruption. We sign an NDA before you share any data.",
+  "report": [
+    "Current-state map of the areas reviewed",
+    "Top 5 issues, ranked by impact and effort",
+    "Quick wins you can start in the next 30 days",
+    "Estimated time and cost savings, as ranges",
+    "Roadmap options for the next 3 to 12 months"
+  ],
+  "reportText": "An 8 to 10 page report written by the engineers and designers who did the review. Act on it with your own team, with us, or with anyone else."
+}

@@ -1,0 +1,62 @@
+  // Client journeys for the metro map, option A from Strategy/What We Offer.md: one line per starting point.
+  // The three lines share Free audit, Build and Handover. col is the column along the journey.
+  // num.ph marks a placeholder number to replace. iso picks the isometric scene in the station drill-down.
+  function metroData(C){
+    var ST={      audit:{n:'Free audit',when:'Week 0',iso:'desk',who:'A senior engineer and you',
+        what:'A 45-minute call, then five working days on the two areas you pick: product, codebase, cloud or AI.',
+        get:'An 8 to 10 page report and a 60-minute walkthrough with your team. Yours to keep.',num:{v:'5 days',l:'of review, on our side'}},
+      discovery:{n:'Discovery and kickoff',when:'Weeks 1–2',iso:'board',who:'Product engineer, designer, your founder or product owner',
+        what:'Goals, users and scope. We cut the first release down to what proves the idea. Already have a spec? We review it here and list the gaps.',
+        get:'A prioritised backlog and a release plan.',num:{v:'6–10',l:'user stories in release one',ph:1}},
+      design:{n:'Design',when:'Weeks 2–4',iso:'screens',who:'Product designer, part time',
+        what:'User flows, a clickable prototype and a small design system. We test the prototype with real users before we build.',
+        get:'Figma flows and components your developers can use.',num:{v:'5',l:'usability sessions',ph:1}},
+      build:{n:'Build',when:'Every week',iso:'rack',who:'1–2 developers, design and DevOps part time',
+        what:'Weekly releases to staging and a demo every Friday. AI features ship here too, tested on real cases first.',
+        get:'Working software every Friday and a written update.',num:{v:'1',l:'demo every Friday'},
+        by:{existing:'Back to the roadmap, now on a stable base. We build with your engineers, not around them.',
+            team:'Your standups, your tickets, your code review. Our engineers work as members of your team.'}},
+      launch:{n:'Launch',when:'Release week',iso:'rocket',who:'Developers and DevOps',
+        what:'Release to production with monitoring, alerts and a rollback plan. We stay on call for the first weeks.',
+        get:'Dashboards, alerts and a tested rollback.',num:{v:'< 10 min',l:'to roll back a release',ph:1},
+        },
+      handover:{n:'Handover',when:'When you’re ready',iso:'key',who:'Our team and your new hires',
+        what:'Documentation, pairing with your hires and a planned exit.',
+        get:'Runbooks, decision records and a team that owns the code.',num:{v:'2–4 weeks',l:'overlap with your hires',ph:1},
+        by:{existing:'The before and after report goes with the code, so your team knows what changed and why.',
+            team:'Your own hires take over our tickets. We stay for the overlap, then step out.'}},
+      baseline:{n:'Measure the baseline',when:'Weeks 1–2',iso:'gauge',who:'Senior developer and DevOps',
+        what:'How often you deploy, how long a change takes to reach users, how many releases fail and how fast you recover. Plus build time, open bugs and crash rate.',
+        get:'A baseline report: the before picture.',num:{v:'3 weeks',l:'from commit to production, before',ph:1}},
+      stabilise:{n:'Stabilise',when:'Weeks 2–4',iso:'shield',who:'Developers and DevOps',
+        what:'Alerts and a rollback path first. Then the top crashes, with a freeze on risky changes until they are fixed.',
+        get:'Fewer incidents and a product that stays up.',num:{v:'10',l:'top crashes fixed',ph:1}},
+      essentials:{n:'Fix the essentials',when:'Weeks 3–8',iso:'pipe',who:'Developers and DevOps',
+        what:'A CI/CD pipeline, tests on the critical paths, and dependency and security upgrades.',
+        get:'Green builds and deploys nobody is afraid of.',num:{v:'40 → 8 min',l:'build time',ph:1}},
+      ways:{n:'Ways of working',when:'Weeks 4–10',iso:'people',who:'A senior developer as coach, your team',
+        what:'Code review rules, a definition of done, a sprint rhythm and retros. We coach your team through them in real sprints.',
+        get:'A process your people keep after we leave.',num:{v:'3 days → 1',l:'to review a pull request',ph:1}},
+      remeasure:{n:'Measure again',when:'Month 3',iso:'gauge',who:'Senior developer',
+        what:'The same metrics as the baseline, measured the same way.',
+        get:'A before and after report you can show your board.',num:{v:'4×',l:'more deploys than at baseline',ph:1}},
+      match:{n:'Match',when:'Week 0–1',iso:'people',who:'You and our lead',
+        what:'We propose engineers by skill and time zone, and you interview them.',
+        get:'Profiles to review.',num:{v:'5 days',l:'to the first profiles',ph:1}},
+      onboard:{n:'Onboard',when:'Week 1',iso:'desk',who:'Our engineers and your lead',
+        what:'Access, a local setup and a first small ticket.',
+        get:'A first merged pull request in week one.',num:{v:'day 3',l:'first pull request merged',ph:1}},
+      monthly:{n:'Monthly review',when:'Every month',iso:'gauge',who:'You and our lead',
+        what:'What went well, what to change and whether to scale up or down.',
+        get:'Capacity that follows your roadmap.',num:{v:'1 month',l:'notice to scale',ph:1}}
+    };
+    var LINES=[
+      {id:'new',name:'New product',col:C.coral,one:'You have an idea or a spec. We design it, build it and launch it.',
+        stops:[['audit',0],['discovery',1],['design',3],['build',5],['launch',6],['handover',7]]},
+      {id:'existing',name:'Existing product',col:C.teal,one:'Your product is live but struggles. We measure it, stabilise it and fix the basics, then build again.',
+        stops:[['audit',0],['baseline',1],['stabilise',2],['essentials',3],['ways',4],['build',5],['remeasure',6],['handover',7]]},
+      {id:'team',name:'Your team',col:C.sky,one:'Your team needs senior hands now. Our engineers join your sprints.',
+        stops:[['audit',0],['match',1],['onboard',3],['build',5],['monthly',6],['handover',7]]}
+    ];
+    return {ST:ST,LINES:LINES};
+  }
