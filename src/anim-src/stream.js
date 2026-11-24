@@ -5,7 +5,8 @@
   // On touch, the first tap shows the label and a second tap on the same element runs the action.
   // Scroll tour (O.scrollTips): on screens without hover, scrolling the page walks the label through the diagram
   // in data-flow order. Any tap or mouse move on the canvas hands control back to the user until the canvas
-  // leaves the viewport. O.scrollTips: true (default, touch screens only), 'always' (every device), false (off).
+  // leaves the viewport. O.x0 (number, or function of canvas width) keeps the left fraction of the canvas clear, for text laid over it.
+  // O.scrollTips: true (default, touch screens only), 'always' (every device), false (off).
   function eventStream(cv,ctrls,O){
     O=O||{};
     var cx=cv.getContext('2d'),still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -212,7 +213,7 @@
       S.servers.forEach(function(v){v.a=v.gone?Math.max(0,v.a-dt*(v.failed?3:2)):(still?1:Math.min(1,v.a+dt*2.5));});
       S.servers=S.servers.filter(function(v){return !(v.gone&&v.a<=0);});
       // layout
-      var X=[.12,.38,.65,.9],mid=(top+bot)/2,n=S.servers.length;
+      var x0=typeof O.x0==='function'?O.x0(w):(O.x0||0),X=[.12,.38,.65,.9].map(function(f){return x0+f*(1-x0);}),mid=(top+bot)/2,n=S.servers.length;
       var src=SRC.map(function(s,i){return{x:X[0]*w,y:lerp(top+14,bot-8,i/(SRC.length-1)),i:i};});
       var lb={x:X[1]*w,y:mid},db={x:X[3]*w,y:lerp(top,bot,.27)},gdb={x:X[3]*w,y:lerp(top,bot,.75)};
       var gap=Math.min(30,(bot-top)/Math.max(n,1));
@@ -422,12 +423,13 @@
           cx.beginPath();cx.ellipse(db.x,db.y,18+t*26,10+t*16,0,0,6.3);cx.stroke();}
         return r.t<1.25;});
       cx.globalAlpha=1;
+      var HX=Math.round(x0*w);cx.save();cx.translate(HX,0);
       // headline readout: number right-aligned in a fixed slot so the unit never moves
       cx.globalAlpha=1;cx.textAlign='right';cx.fillStyle=C.amber;cx.font='700 24px '+HEAD;
       var slot=cx.measureText('88,888').width,nx=14+slot;
       cx.fillText(fmt(ro('total',Math.min(99990,total+(S.drain?S.drain.rate:0)),10,2)),nx,30);
       cx.textAlign='left';cx.font='600 14px '+HEAD;cx.fillText('events/s',nx+7,30);
-      var unitW=cx.measureText('events/s').width;S.headBox={x:10,y:8,w:nx+11+unitW-10,h:30};
+      var unitW=cx.measureText('events/s').width;S.headBox={x:10+HX,y:8,w:nx+11+unitW-10,h:30};
       var eH=ease('n:head',hov&&hov.kind==='head'?1:0,k);
       if(eH>.02){cx.globalAlpha=.7*eH;cx.fillRect(14,36,(nx+7+unitW-14)*eH,1.5);
         cx.globalAlpha=eH;cx.fillStyle=C.muted;cx.font='italic 400 11.5px '+BODY;
@@ -437,6 +439,7 @@
       var sTxt=alive.length+(alive.length===1?' server':' servers'),pctSlot=cx.measureText('100%').width,sx=14+cx.measureText('10 servers').width+10;
       if(S.outage){cx.fillStyle=C.red;cx.fillText('0 servers · events held in queue',14,49);}
       else{cx.fillText(sTxt,14,49);cx.textAlign='right';cx.fillText(ro('util',util*100,5)+'%',sx+pctSlot,49);cx.textAlign='left';cx.fillText('busy',sx+pctSlot+5,49);}
+      cx.restore();
       // activity feed, top right
       S.feed=S.feed.filter(function(m){m.life-=dt;return m.life>0;});
       cx.textAlign='right';cx.font='400 12px '+BODY;

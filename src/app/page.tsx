@@ -1,29 +1,31 @@
 import Anim from '@/components/Anim';
-import Services from '@/components/Services';
+import EipStream from '@/components/EipStream';
 import Contact from '@/components/Contact';
-import { collection, json, site } from '@/lib/content';
+import { json, site } from '@/lib/content';
 
+// Homepage, rebuilt 23 Nov 2026 from Strategy/What We Offer.md: three offers, what we build with, proof, the route, FAQ.
 export default function Home() {
   const s = site();
   const h = json('pages/home.json');
-  const services = collection('services');
-  const team = json('team/team.json').members as any[];
   return (
     <>
-      <section className="hero dark glow">
-        <span className="arc" style={{ width: 900, height: 900, right: -420, top: -160 }} aria-hidden="true" />
+      <section className="hero dark">
         <div className="wrap">
-          <div>
-            <span className="parent"><span className="flag" aria-hidden="true"><i /><i /><i /></span>{h.hero.parent}</span>
-            <h1>{h.hero.title} <em>{h.hero.titleAccent}</em></h1>
-            <p className="lede">{h.hero.lede}</p>
-            <div className="ctas">
-              <a className="btn primary" href={s.calendar} target="_blank" rel="noopener">{s.calendarLabel} →</a>
-              <a className="btn outline" href="/audit/">Get the free audit</a>
+          <div className="hero-text" id="hero-text">
+            <div className="hero-head">
+              <span className="parent"><span className="flag" aria-hidden="true"><i /><i /><i /></span>{h.hero.parent}</span>
+              <h1>{h.hero.title} <em>{h.hero.titleAccent}</em></h1>
+            </div>
+            <div className="hero-sub">
+              <p className="lede">{h.hero.lede}</p>
+              <div className="ctas">
+                <a className="btn primary" href={s.calendar} target="_blank" rel="noopener">{s.calendarLabel} →</a>
+                <a className="btn outline" href="#offers">See the three offers</a>
+              </div>
             </div>
           </div>
-          <figure className="graph" style={{ margin: 0 }}>
-            <Anim kind="stream" label={h.hero.canvasLabel} />
+          <figure className="graph">
+            <EipStream avoidId="hero-text" bg="#051223" cal={s.calendar} />
           </figure>
           <dl className="facts" aria-label="Key facts">
             {h.hero.facts.map((f: any) => <div key={f.value}><dt>{f.value}</dt><dd>{f.label}</dd></div>)}
@@ -31,26 +33,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" aria-labelledby="svc-h" style={{ background: 'var(--paper)' }}>
+      <section id="offers" aria-labelledby="off-h" style={{ background: 'var(--paper)' }}>
         <div className="wrap">
-          <div className="sec-head center"><span className="eyebrow">{h.services.eyebrow}</span><h2 id="svc-h">{h.services.title}</h2><p>{h.services.intro}</p></div>
-          <Services items={services} />
+          <div className="sec-head"><span className="eyebrow">{h.offers.eyebrow}</span><h2 id="off-h">{h.offers.title}</h2><p>{h.offers.intro}</p></div>
+          <div className="offers">
+            {h.offers.items.map((o: any) => (
+              <article className="offer" data-line={o.id} key={o.id}>
+                <h3>{o.name}</h3>
+                <p className="situation">{o.situation}</p>
+                <p>{o.text}</p>
+                <dl>
+                  <dt>You get</dt><dd>{o.get}</dd>
+                  <dt>For</dt><dd>{o.who}</dd>
+                </dl>
+                <div className="offer-links">
+                  <a className="btn primary" href="/audit/">Start with the free audit →</a>
+                  <a href="#route">See the route</a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="addons">
+            <h3>{h.addons.title}</h3>
+            {h.addons.items.map((a: any) => <div key={a.name}><b>{a.name}</b><span>{a.text}</span></div>)}
+          </div>
         </div>
       </section>
 
-      <section className="dark" aria-labelledby="dl-h">
-        <span className="arc" style={{ width: 1200, height: 1200, left: -700, top: 40 }} aria-hidden="true" />
+      <section id="expertise" className="dark" aria-labelledby="exp-h">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">{h.rules.eyebrow}</span><h2 id="dl-h">{h.rules.title}</h2><p>{h.rules.intro}</p></div>
-          <div className="deadlines" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))' }}>
-            {h.rules.items.map((r: any) => <div key={r.title}><time dateTime={r.date}>{r.when}</time><b>{r.title}</b><p>{r.text}</p></div>)}
-          </div>
+          <div className="sec-head"><span className="eyebrow">{h.expertise.eyebrow}</span><h2 id="exp-h">{h.expertise.title}</h2><p>{h.expertise.intro}</p></div>
+          <dl className="stack-grid">
+            {h.expertise.groups.map((g: any) => <div key={g.name}><dt>{g.name}</dt><dd>{g.items}</dd></div>)}
+          </dl>
         </div>
       </section>
 
       <section id="work" aria-labelledby="work-h">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">{h.cases.eyebrow}</span><h2 id="work-h">{h.cases.title}</h2></div>
+          <div className="sec-head"><span className="eyebrow">{h.proof.eyebrow}</span><h2 id="work-h">{h.proof.title}</h2></div>
+          <article className="own-product">
+            <div>
+              <h3>{h.proof.product.name}</h3>
+              <p>{h.proof.product.text}</p>
+              <a href={h.proof.product.url} target="_blank" rel="noopener">{h.proof.product.linkLabel} →</a>
+            </div>
+            <dl>
+              {h.proof.product.numbers.map((n: any) => <div key={n.label}><dt>{n.value}</dt><dd>{n.label}</dd></div>)}
+            </dl>
+            <p className="source">{h.proof.product.source}</p>
+          </article>
           <div className="cases">
             {h.cases.items.map((c: any) => (
               <article className="case" key={c.title}>
@@ -68,52 +100,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how" className="how" style={{ background: 'var(--paper)' }} aria-labelledby="how-h">
-        <div className="wrap">
-          <div>
-            <div className="sec-head" style={{ marginBottom: 0 }}><span className="eyebrow">{h.how.eyebrow}</span><h2 id="how-h">{h.how.title}</h2><p>{h.how.intro}</p></div>
-            <div className="pkgs">{h.how.packages.map((p: any) => <div className="pkg" key={p.name}><b>{p.name}</b><span>{p.text}</span></div>)}</div>
-            <p style={{ marginTop: 28 }}><a className="btn primary" href="/process/">See the whole route →</a></p>
+      <section id="route" style={{ background: 'var(--paper)' }} aria-labelledby="route-h">
+        <div className="wrap metro-wrap">
+          <div className="sec-head"><span className="eyebrow">{h.route.eyebrow}</span><h2 id="route-h">{h.route.title}</h2><p>{h.route.intro}</p></div>
+          <div className="metro">
+            <Anim kind="metro" label="A metro map with three lines: Product development, Stabilise and scale, and Team augmentation. They share the stations Free audit, Build and Handover. Hover or tap a line to read it, click it to ride it, click a station to see who works on it, what we do and what you get." />
           </div>
-          <div className="steps">
-            {h.how.steps.map((st: any) => <div className="step" key={st.name}><h3>{st.name}</h3><small>{st.when}</small><p>{st.text}</p></div>)}
-          </div>
+          <p className="hint">Yellow numbers are examples until we publish numbers from real projects. <a href="/process/">Packages and steps →</a></p>
         </div>
       </section>
 
-      <section className="dark glow" aria-labelledby="prod-h">
+      <section id="faq" aria-labelledby="faq-h">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">{h.products.eyebrow}</span><h2 id="prod-h">{h.products.title}</h2></div>
-          <div className="products">
-            {h.products.items.map((p: any) => (
-              <div className="prod" key={p.name} style={p.url ? undefined : { borderStyle: 'dashed' }}>
-                <h3>{p.name}</h3><p>{p.text}</p>
-                {p.url && <a href={p.url} target="_blank" rel="noopener">{p.linkLabel} →</a>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="logos" aria-labelledby="logos-h">
-        <div className="wrap">
-          <div className="sec-head center" style={{ marginBottom: 0 }}><span className="eyebrow" id="logos-h">{h.group.eyebrow}</span><h2>{h.group.title}</h2><p>{h.group.text}</p></div>
-        </div>
-      </section>
-
-      <section id="team" aria-labelledby="team-h">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">{h.team.eyebrow}</span><h2 id="team-h">{h.team.title}</h2><p>{h.team.intro}</p></div>
-          <div className="team">
-            {team.map((m) => (
-              <div className="person" key={m.name}>
-                <img src={m.photo} alt={'Portrait of ' + m.name} width={147} height={147} loading="lazy" />
-                <b>{m.name}</b>
-                {m.role && <span>{m.role}</span>}
-                {m.linkedin && <a href={m.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
-              </div>
-            ))}
-          </div>
+          <div className="sec-head"><span className="eyebrow">{h.faq.eyebrow}</span><h2 id="faq-h">{h.faq.title}</h2></div>
+          {/* answers are short, so they stay open: no click to read them */}
+          <dl className="faq">
+            {h.faq.items.map((f: any) => <div key={f.q}><dt>{f.q}</dt><dd>{f.a}</dd></div>)}
+          </dl>
         </div>
       </section>
 

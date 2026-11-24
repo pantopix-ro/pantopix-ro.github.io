@@ -1,38 +1,172 @@
 {
   "hero": {
     "parent": "Part of PANTOPIX GmbH, Germany, since 2010",
-    "title": "Senior engineers who build and",
-    "titleAccent": "scale your product.",
-    "lede": "Web, mobile and SaaS products for funded startups and growing companies. A small senior team in Cluj, part of a German group since 2010, coding within two weeks.",
+    "title": "Senior engineers. Small team,",
+    "titleAccent": "start in weeks.",
+    "lede": "Build a new product, stabilise the one you have, or add senior engineers to your team. For startups and scale-ups, from Cluj, part of a German group since 2010.",
     "canvasLabel": "Live event stream: data from a web app, mobile app, payments and IoT sensors flows through a load balancer to autoscaled servers, then into PostgreSQL and a graph database. Hover or tap any part.",
     "facts": [
-      { "value": "2010", "label": "PANTOPIX GmbH founded in Germany" },
-      { "value": "2025", "label": "Cluj team opens as PANTOPIX RO" },
-      { "value": "2 weeks", "label": "from signed contract to first commit" },
-      { "value": "CET", "label": "same timezone as Berlin, Vienna and Zurich" }
+      {
+        "value": "2010",
+        "label": "PANTOPIX GmbH founded in Germany"
+      },
+      {
+        "value": "2025",
+        "label": "Cluj team opens as PANTOPIX RO"
+      },
+      {
+        "value": "2 weeks",
+        "label": "from signed contract to first commit"
+      },
+      {
+        "value": "CET",
+        "label": "same timezone as Berlin, Vienna and Zurich"
+      }
     ]
   },
-  "services": {
-    "eyebrow": "Services",
-    "title": "What we build",
-    "intro": "Seven services in three groups. AI runs through all of them: it speeds up our reviews, tests and docs, and people still review every line."
-  },
-  "rules": {
-    "eyebrow": "Why companies call us now",
-    "title": "Two EU rules that need software work",
-    "intro": "Both apply to any company that sells software or a connected product in the EU, from SaaS startups to machine makers.",
+  "offers": {
+    "eyebrow": "Offers",
+    "title": "Three ways to start",
+    "intro": "Pick the one that sounds like your week. Each one starts with the free audit.",
     "items": [
-      { "date": "2025-06-28", "when": "Since 28 Jun 2025", "title": "European Accessibility Act", "text": "Web apps and online shops must be accessible. We audit your product and fix what fails." },
-      { "date": "2026-09-11", "when": "Since 11 Sep 2026", "title": "Cyber Resilience Act: incident reporting", "text": "Report exploited vulnerabilities fast. We set up monitoring and the reporting flow." },
-      { "date": "2027-12-11", "when": "From 11 Dec 2027", "title": "Cyber Resilience Act: full rules", "text": "Secure updates, an SBOM and security docs for every release. We build them into your pipeline." }
+      {
+        "id": "new",
+        "name": "Product development",
+        "situation": "You have an idea or a spec, and no team yet.",
+        "text": "We cut the first release down to what proves the idea, then design it, build it and launch it. When your own hires arrive, we hand the code over.",
+        "get": "Working software every Friday, from the first week of the build.",
+        "who": "Founders and product owners at startups, scale-ups and manufacturers."
+      },
+      {
+        "id": "existing",
+        "name": "Stabilise and scale",
+        "situation": "Your product is live, but releases break, the team is slow or the original developers left.",
+        "text": "We take over where your last team stopped, stabilise the product and get it moving again.",
+        "get": "A before and after report on deploys, failed releases and build time.",
+        "who": "CEOs and founders."
+      },
+      {
+        "id": "team",
+        "name": "Team augmentation",
+        "situation": "Your team needs senior hands now, and hiring takes months.",
+        "text": "Our engineers join your standups, your tickets and your code review. Each month you decide whether to scale up or down.",
+        "get": "A first merged pull request in the first week.",
+        "who": "CTOs and engineering leads."
+      }
     ]
+  },
+  "addons": {
+    "title": "Add to any offer",
+    "items": [
+      {
+        "name": "Product design, part time",
+        "text": "A designer two days a week: user flows, a small design system and usability checks."
+      },
+      {
+        "name": "AI engineering setup for your team",
+        "text": "We bring AI coding tools into your team with rules attached: which repositories, which models, what a reviewer checks and how to measure the effect."
+      }
+    ]
+  },
+  "expertise": {
+    "eyebrow": "What we build with",
+    "title": "Stacks we've shipped. Yours is probably close.",
+    "intro": "A senior engineer picks up a neighbouring stack in days, and the review bar stays the same.",
+    "groups": [
+      {
+        "name": "Web and mobile",
+        "items": "React, Next.js, Angular, Vue, React Native"
+      },
+      {
+        "name": "Backend and real-time",
+        "items": "Java and Spring Boot, Node.js, Python, Go, Kafka, Elasticsearch, MQTT for IoT"
+      },
+      {
+        "name": "Cloud and DevOps",
+        "items": "AWS, GCP, SAP BTP, Hetzner, Kubernetes, Terraform"
+      },
+      {
+        "name": "AI in your product",
+        "items": "Claude and OpenAI APIs, open-source models on your servers or EU hosting, RAG, agents, evals"
+      }
+    ]
+  },
+  "proof": {
+    "eyebrow": "Proof",
+    "title": "Software we've built",
+    "product": {
+      "name": "Kaisha, our own product",
+      "text": "Shows how much time and profit each client brings, in real time, for firms that sell expertise. Invoicing with e-Factura built in.",
+      "url": "https://kaisha.to/",
+      "linkLabel": "kaisha.to",
+      "numbers": [
+        {
+          "value": "1,386",
+          "label": "commits"
+        },
+        {
+          "value": "326",
+          "label": "merged pull requests"
+        },
+        {
+          "value": "849",
+          "label": "test files"
+        }
+      ],
+      "source": "From Kaisha's git history, August 2025 to November 2026."
+    }
   },
   "cases": {
     "eyebrow": "Case studies",
     "title": "Systems our engineers have built",
     "items": [
-      { "metric": "20K", "unit": "events / second", "title": "Real-time analytics platform", "built": "Event ingestion, live dashboards, alerting", "stack": "Kafka, Elasticsearch, Redis, Spring Boot", "by": "Built by our lead engineer, Mihnea, before PANTOPIX RO." },
-      { "metric": "100K", "unit": "emails / hour", "title": "E-commerce automation", "built": "Inventory sync, document workflows, backend jobs for a large online retailer", "result": "90% less manual work", "by": "Built by our lead engineer, Mihnea, before PANTOPIX RO." }
+      {
+        "metric": "20K",
+        "unit": "events / second",
+        "title": "Real-time analytics platform",
+        "built": "Event ingestion, live dashboards, alerting",
+        "stack": "Kafka, Elasticsearch, Redis, Spring Boot",
+        "by": "Built by our lead engineer, Mihnea, before PANTOPIX RO."
+      },
+      {
+        "metric": "100K",
+        "unit": "emails / hour",
+        "title": "E-commerce automation",
+        "built": "Inventory sync, document workflows, backend jobs for a large online retailer",
+        "result": "90% less manual work",
+        "by": "Built by our lead engineer, Mihnea, before PANTOPIX RO."
+      }
+    ]
+  },
+  "route": {
+    "eyebrow": "How it runs",
+    "title": "Three routes, one per offer",
+    "intro": "Every route starts with the free audit, runs through Build and ends with a handover to your own team. Click a line to ride it, or a station to look inside."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "What buyers ask first",
+    "items": [
+      {
+        "q": "Do you use AI to write code?",
+        "a": "We use AI tools where they save you time. A senior engineer reviews every change."
+      },
+      {
+        "q": "How fast can you start?",
+        "a": "Two weeks from a signed contract to the first commit."
+      },
+      {
+        "q": "Who owns the code?",
+        "a": "You do. The code lives in your repository, and we hand over documentation when your own hires take over."
+      },
+      {
+        "q": "Which time zone do you work in?",
+        "a": "Central European Time, the same as Berlin, Vienna and Zurich. Our office is in Cluj-Napoca, Romania."
+      },
+      {
+        "q": "What does the free audit cover?",
+        "a": "Five working days on two areas you pick, then a written report and a walkthrough with your team."
+      }
     ]
   },
   "how": {
@@ -40,34 +174,41 @@
     "title": "A small senior team",
     "intro": "We staff one or two developers, with design and DevOps alongside. You get the same people every week, and they hand over clean code when your own hires arrive.",
     "packages": [
-      { "name": "Seat", "text": "1 senior developer, full time, in your standups and your repo." },
-      { "name": "Starter team", "text": "1 senior developer, design 2 days a week, DevOps 1 day a week." },
-      { "name": "Product team", "text": "2 developers, with design and DevOps part time." }
+      {
+        "name": "Seat",
+        "text": "1 senior developer, full time, in your standups and your repo."
+      },
+      {
+        "name": "Starter team",
+        "text": "1 senior developer, design 2 days a week, DevOps 1 day a week."
+      },
+      {
+        "name": "Product team",
+        "text": "2 developers, with design and DevOps part time."
+      }
     ],
     "steps": [
-      { "name": "Free audit", "when": "Week 0", "text": "Five working days on the two areas you pick, then a written report." },
-      { "name": "Kickoff", "when": "Week 1", "text": "Access, architecture review and a first merged pull request." },
-      { "name": "Build", "when": "Every week", "text": "Demo on Friday, written update, the same engineers on your code." },
-      { "name": "Handover", "when": "When you're ready", "text": "Documentation, onboarding for your new hires and a clean exit." }
+      {
+        "name": "Free audit",
+        "when": "Week 0",
+        "text": "Five working days on the two areas you pick, then a written report."
+      },
+      {
+        "name": "Kickoff",
+        "when": "Week 1",
+        "text": "Access, architecture review and a first merged pull request."
+      },
+      {
+        "name": "Build",
+        "when": "Every week",
+        "text": "Demo on Friday, written update, the same engineers on your code."
+      },
+      {
+        "name": "Handover",
+        "when": "When you're ready",
+        "text": "Documentation, onboarding for your new hires and a clean exit."
+      }
     ]
-  },
-  "products": {
-    "eyebrow": "Our own products",
-    "title": "We ship software of our own",
-    "items": [
-      { "name": "Kaisha", "text": "Shows how much time and profit each client brings, in real time, for firms that sell expertise. Invoicing with e-Factura built in.", "url": "https://kaisha.to/", "linkLabel": "kaisha.to" },
-      { "name": "Next product", "text": "In the works. We build our own products on the same stack and standards we use for clients." }
-    ]
-  },
-  "group": {
-    "eyebrow": "About the PANTOPIX group",
-    "title": "A German group, since 2010",
-    "text": "PANTOPIX GmbH has worked with industrial companies in Germany since 2010. PANTOPIX RO is the group's software engineering team in Cluj, founded in January 2025."
-  },
-  "team": {
-    "eyebrow": "Team",
-    "title": "The people on your project",
-    "intro": "Developers and designers across backend, frontend, mobile, cloud and design."
   },
   "contact": {
     "eyebrow": "Free audit",

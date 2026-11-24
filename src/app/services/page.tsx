@@ -12,7 +12,7 @@ export default function ServicesPage() {
         <div className="wrap">
           <span className="eyebrow">Services</span>
           <h1 style={{ marginTop: 12 }}>Software we build, run and staff</h1>
-          <p className="lede">{h.services.intro}</p>
+          <p className="lede">Seven services in three groups. Each one is part of an offer: Product development, Stabilise and scale, or Team augmentation.</p>
         </div>
       </section>
       <section style={{ background: 'var(--paper)' }}>

@@ -28,7 +28,11 @@ export default function Anim({ kind, label, className }: { kind: Kind; label: st
     cv._started = true;
     const w = window as any;
     const run = () => {
-      if (kind === 'stream') w.eventStream(cv, null, { transparent: true });
+      if (kind === 'stream') w.eventStream(cv, null, {
+        transparent: true,
+        // on wide screens the hero text sits over the left of the canvas, so the diagram starts after it
+        x0: (cw: number) => (cw > 900 ? 0.42 : 0),
+      });
       else w.procMetro(cv, { cal: 'https://cal.com/px-mihnea/talk' });
     };
     // wait for the fonts, so canvas text measures with the real typefaces
