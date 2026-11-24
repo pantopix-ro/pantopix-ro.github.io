@@ -18,7 +18,7 @@ export default function Process() {
       <section style={{ background: 'var(--paper)' }}>
         <div className="wrap metro-wrap">
           <div className="metro">
-            <Anim kind="metro" label="A metro map with three lines: New product, Existing product and Your team. They share the stations Free audit, Build and Handover. Hover or tap a line to read it, click it to ride it, click a station to see who works on it, what we do and what you get." />
+            <Anim kind="metro" label="A metro map with three lines: Product development, Stabilise and scale, and Team augmentation. They share the stations Free audit, Build and Handover. Hover or tap a line to read it, click it to ride it, click a station to see who works on it, what we do and what you get." />
           </div>
           <p className="hint">Click a line and a train rides it. Click a station to look inside. Yellow numbers are examples until we publish numbers from real projects.</p>
         </div>

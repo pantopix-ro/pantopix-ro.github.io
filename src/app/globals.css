@@ -233,3 +233,70 @@ nav.main a[aria-current=page]{border-bottom-color:var(--coral)}
 .legal-dl dd{margin:0}
 .person img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:var(--cream)}
 .back{font-family:var(--head);color:var(--coral);font-weight:600;text-decoration:none}
+
+/* Hero: the "Live event stream" v15 (components/EipStream.tsx). The background is solid and equals the bg option,
+   so the label halos match. From 1200 px the text and the diagram share one grid cell, the diagram runs edge to edge
+   and keeps clear of the text (avoid option). Below 1200 px the text comes first and the diagram stacks under it. */
+.hero{background:#051223}
+.hero .wrap{grid-template-columns:minmax(0,1fr);gap:8px}
+.hero-text{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.hero-text .parent{margin-bottom:22px}
+.hero .lede{margin-top:20px}
+.hero .ctas{margin-top:26px}
+.hero .arc{display:none}
+.graph{margin:0;min-width:0}
+.graph canvas{height:554px}
+.facts{margin-top:24px}
+@media (min-width:768px){.graph canvas{height:480px}}
+@media (min-width:1200px){
+  .hero{padding-block:0 64px}
+  .hero .wrap{gap:0}
+  .hero .wrap > .hero-text,.hero .wrap > .graph{grid-area:1/1}
+  .hero-text{display:block;max-width:40%;align-self:center;position:relative;z-index:2;pointer-events:none;padding-block:72px}
+  .hero-text a,.hero-text button,.hero-text .parent{pointer-events:auto}
+  .hero .lede{margin-top:22px;font-size:18px}
+  .hero .ctas{margin-top:30px}
+  .graph{margin-inline:calc(50% - 50vw)}
+  .graph canvas{height:620px}
+  .facts{margin-top:8px}
+}
+
+/* Homepage offers, 23 Nov 2026. Each offer card carries its metro line colour. */
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.offer{--line-c:var(--coral);background:var(--white);border-radius:8px;box-shadow:0 4px 24px rgba(5,18,35,.09);padding:32px 28px;display:grid;gap:14px;align-content:start;border-top:4px solid var(--line-c)}
+.offer[data-line=existing]{--line-c:#10c29e}
+.offer[data-line=team]{--line-c:#9fd3f5}
+.offer .situation{font-family:var(--head);font-size:18px;line-height:1.35;color:var(--slate)}
+.offer > p:not(.situation){color:var(--muted);font-size:16px}
+.offer dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:15px}
+.offer dt{font-family:var(--head);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-top:3px}
+.offer dd{margin:0}
+.offer-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px}
+.offer-links .btn{padding:8px 16px 6px;font-size:14px}
+.offer-links a:not(.btn){font:600 14px var(--head);color:var(--coral);text-decoration:none}
+.addons{margin-top:36px;display:grid;grid-template-columns:auto 1fr 1fr;gap:12px 32px;align-items:baseline;border-top:1px solid var(--line);padding-top:24px}
+.addons h3{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+.addons div{display:grid;gap:2px}
+.addons b{font-family:var(--head);font-weight:600;color:var(--slate)}
+.addons span{color:var(--muted);font-size:15.5px}
+.stack-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin:0}
+.stack-grid div{border-top:2px solid var(--amber);padding-top:14px}
+.stack-grid dt{font-family:var(--head);font-weight:600;font-size:18px;color:var(--white);margin-bottom:6px}
+.stack-grid dd{margin:0;color:var(--on-navy-muted);font-size:15.5px}
+.own-product{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px 40px;align-items:center;background:var(--navy);color:var(--on-navy);border-radius:8px;padding:32px;margin-bottom:24px}
+.own-product h3{color:var(--white)}
+.own-product p{color:var(--on-navy-muted);margin-top:8px}
+.own-product a{display:inline-block;margin-top:12px;font:600 15px var(--head);color:var(--amber);text-decoration:none}
+.own-product dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0}
+.own-product dt{font-family:var(--head);font-size:clamp(30px,3.4vw,40px);font-weight:700;line-height:1;color:var(--amber)}
+.own-product dd{margin:4px 0 0;font-size:14px;color:var(--on-navy-muted)}
+.own-product .source{grid-column:1/-1;font-size:13px;margin-top:4px}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;margin:0}
+.faq dt{font-family:var(--head);font-weight:600;font-size:18px;color:var(--slate)}
+.faq dd{margin:6px 0 0;color:var(--muted)}
+#route .metro-wrap .sec-head{margin-bottom:28px}
+@media (max-width:900px){
+  .offers,.addons,.own-product,.faq{grid-template-columns:minmax(0,1fr)}
+  .stack-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){.stack-grid{grid-template-columns:minmax(0,1fr)}}

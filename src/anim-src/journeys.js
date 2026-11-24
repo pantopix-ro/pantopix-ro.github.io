@@ -51,11 +51,11 @@
         get:'Capacity that follows your roadmap.',num:{v:'1 month',l:'notice to scale',ph:1}}
     };
     var LINES=[
-      {id:'new',name:'New product',col:C.coral,one:'You have an idea or a spec. We design it, build it and launch it.',
+      {id:'new',name:'Product development',col:C.coral,one:'You have an idea or a spec. We design it, build it and launch it.',
         stops:[['audit',0],['discovery',1],['design',3],['build',5],['launch',6],['handover',7]]},
-      {id:'existing',name:'Existing product',col:C.teal,one:'Your product is live but struggles. We measure it, stabilise it and fix the basics, then build again.',
+      {id:'existing',name:'Stabilise and scale',col:C.teal,one:'Your product is live but struggles. We measure it, stabilise it and fix the basics, then build again.',
         stops:[['audit',0],['baseline',1],['stabilise',2],['essentials',3],['ways',4],['build',5],['remeasure',6],['handover',7]]},
-      {id:'team',name:'Your team',col:C.sky,one:'Your team needs senior hands now. Our engineers join your sprints.',
+      {id:'team',name:'Team augmentation',col:C.sky,one:'Your team needs senior hands now. Our engineers join your sprints.',
         stops:[['audit',0],['match',1],['onboard',3],['build',5],['monthly',6],['handover',7]]}
     ];
     return {ST:ST,LINES:LINES};
