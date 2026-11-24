@@ -8,9 +8,11 @@ import '@fontsource/lato/400.css';
 import '@fontsource/lato/700.css';
 import '@fontsource/jetbrains-mono/400.css';
 import './globals.css';
+import './eip.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { LogoSymbol } from '@/components/Logo';
+import SiteChrome from '@/components/SiteChrome';
 import { site } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -28,9 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a className="skip" href="#main">Skip to content</a>
         <LogoSymbol />
-        <Header nav={s.nav} cal={s.calendar} calLabel={s.calendarLabel} />
+        <SiteChrome><Header nav={s.nav} cal={s.calendar} calLabel={s.calendarLabel} /></SiteChrome>
         <main id="main">{children}</main>
-        <Footer s={s} />
+        <SiteChrome><Footer s={s} /></SiteChrome>
       </body>
     </html>
   );
